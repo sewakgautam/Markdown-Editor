@@ -1,50 +1,39 @@
-# React + TypeScript + Vite
+# Markdown Editor - V0.1 Alpha
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository hosts the source code for a simple and intuitive Markdown editor built using React and TypeScript. The editor allows users to write and preview Markdown content in real-time, making it easier to format text, code snippets, and more. This project is in the V0.1 Alpha stage, which means it is an early version and may still have some bugs and limited features.
 
-Currently, two official plugins are available:
+## Features
+- **Real-Time Preview**: As you type your Markdown text, the rendered HTML output is displayed side-by-side, allowing for instant feedback.
+- **Syntax Highlighting**: Code blocks within the Markdown are highlighted for easier reading and writing.
+- **Simple and Clean UI**: A minimalist user interface that focuses on the writing experience, with responsive design for different screen sizes.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies Used
+- **React**: A popular JavaScript library for building user interfaces.
+- **TypeScript**: A statically-typed superset of JavaScript that improves code quality and development experience.
+- **Marked**: A low-level markdown compiler for parsing and converting Markdown to HTML.
 
-## Expanding the ESLint configuration
+## Getting Started
+To run this project locally, follow these steps:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### Clone the Repository
+```bash
+git clone https://github.com/sewakgautam/Markdown-Editor.git
+cd Markdown-Editor
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+### Install Dependencies
+``` bash
+  npm install
 ```
+
+### Run Application
+``` bash 
+npm start
+```
+
+
+
+
+
