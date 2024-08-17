@@ -30,6 +30,18 @@ function App() {
     convertMarkdownToHtml();
   }, [markdown]);
 
+  function WordCount(str: string) {
+    return str.length;
+  }
+  function LineCount(str: string) {
+    return str.split("\n").length;
+  }
+
+  let words = WordCount(markdown);
+  const lines = LineCount(markdown);
+  const colums = 0;
+  const character = 0;
+
   return (
     <>
       <div className="container">
@@ -40,6 +52,14 @@ function App() {
           placeholder="Enter your markdown here..."
         />
         <div id="preview" dangerouslySetInnerHTML={{ __html: html }} />
+      </div>
+      <div className="footer">
+        <p>
+          Markdown <b>{words} </b> words <b>{lines}</b> lines{" "}
+          <b>
+            Ln {lines} Col {colums}
+          </b>
+        </p>
       </div>
     </>
   );

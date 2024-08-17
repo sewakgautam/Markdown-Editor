@@ -1,13 +1,10 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
 }
 
 /* src/MarkdownEditor.css */
 .container {
   display: flex;
-
 }
 
 textarea, #preview {
@@ -29,6 +26,17 @@ textarea {
 
 #preview {
   overflow-y: auto;
-  text-align: left;
   line-height: 1.4;
+}
+
+.footer{
+  background-color: #0062A3;
+  color: white;
+  position: fixed;
+  width: 100vw;
+  height: 35px;
+  bottom: 0;
+  font-size: 12px;
+  padding-left:20px ;
+  margin-left:-10px ;
 }
