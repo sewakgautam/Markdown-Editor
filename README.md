@@ -27,12 +27,20 @@ cd Markdown-Editor
 ``` bash
   npm install
 ```
+### Run On Deployment
+``` bash 
+npm run dev
+```
 
 ### Run Application
 ``` bash 
 npm start
 ```
 
+### Run on production
+``` bash 
+npm build
+```
 
 
 
