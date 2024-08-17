@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import { marked } from "marked";
 import emoji from "emoji-dictionary";
 
 function App() {
   const [markdown, setMarkdown] = useState<string>("");
+  const [html, setHtml] = useState<string>("");
 
   const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setMarkdown(e.target.value);
@@ -14,11 +15,20 @@ function App() {
     return text.replace(/:\w+:/g, (name) => emoji.getUnicode(name) || name);
   };
 
-  const getMarkdownText = () => {
-    const rawMarkup = marked(markdown);
-    const emojiMarkup = parseEmojis(rawMarkup);
-    return { __html: emojiMarkup };
-  };
+  useEffect(() => {
+    const convertMarkdownToHtml = async () => {
+      try {
+        // Assuming `marked` is asynchronous in your version
+        const rawMarkup = await marked(markdown);
+        const emojiMarkup = parseEmojis(rawMarkup);
+        setHtml(emojiMarkup);
+      } catch (error) {
+        console.error("Error parsing markdown:", error);
+      }
+    };
+
+    convertMarkdownToHtml();
+  }, [markdown]);
 
   return (
     <>
@@ -29,7 +39,7 @@ function App() {
           onChange={handleInputChange}
           placeholder="Enter your markdown here..."
         />
-        <div id="preview" dangerouslySetInnerHTML={getMarkdownText()} />
+        <div id="preview" dangerouslySetInnerHTML={{ __html: html }} />
       </div>
     </>
   );
