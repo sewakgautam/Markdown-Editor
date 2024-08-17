@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import { marked } from "marked";
+import emoji from "emoji-dictionary";
 
 function App() {
   const [markdown, setMarkdown] = useState<string>("");
@@ -9,8 +10,14 @@ function App() {
     setMarkdown(e.target.value);
   };
 
+  const parseEmojis = (text: string) => {
+    return text.replace(/:\w+:/g, (name) => emoji.getUnicode(name) || name);
+  };
+
   const getMarkdownText = () => {
-    return { __html: marked(markdown) };
+    const rawMarkup = marked(markdown);
+    const emojiMarkup = parseEmojis(rawMarkup);
+    return { __html: emojiMarkup };
   };
 
   return (
