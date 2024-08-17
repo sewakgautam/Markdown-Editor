@@ -1,0 +1,34 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* src/MarkdownEditor.css */
+.container {
+  display: flex;
+
+}
+
+textarea, #preview {
+  width: 80%;
+  height: 80vh;
+  padding: 20px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: black;
+}
+
+textarea {
+  resize: none;
+  font-size: 16px;
+}
+
+#preview {
+  overflow-y: auto;
+  text-align: left;
+  line-height: 1;
+}
