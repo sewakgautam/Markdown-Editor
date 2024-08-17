@@ -41,7 +41,6 @@ function App() {
   let words = WordCount(markdown);
   const lines = LineCount(markdown);
   const colums = 0;
-  const character = 0;
 
   return (
     <>
