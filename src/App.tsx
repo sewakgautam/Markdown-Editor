@@ -34,7 +34,8 @@ function App() {
     return str.length;
   }
   function LineCount(str: string) {
-    return str.split("\n").length;
+    if (WordCount(markdown) == 0) return 0;
+    else return str.split("\n").length;
   }
 
   let words = WordCount(markdown);
