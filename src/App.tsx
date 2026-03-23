@@ -504,9 +504,15 @@ const App: React.FC = () => {
   const handleEditorScroll = useCallback(() => {
     const ed = textareaRef.current;
     const pr = previewRef.current;
-    if (!ed || !pr || viewMode === "editor" || viewMode === "preview") return;
+    if (!ed) return;
     const pct = ed.scrollTop / (ed.scrollHeight - ed.clientHeight || 1);
-    pr.scrollTop = pct * (pr.scrollHeight - pr.clientHeight);
+    // Sync line numbers
+    const ln = document.querySelector('.md-line-numbers') as HTMLElement;
+    if (ln) ln.scrollTop = ed.scrollTop;
+    // Sync preview
+    if (pr && viewMode !== "editor") {
+      pr.scrollTop = pct * (pr.scrollHeight - pr.clientHeight);
+    }
   }, [viewMode]);
 
   /* ─── Focus find when opened ─── */
@@ -812,7 +818,7 @@ const App: React.FC = () => {
   /* ─── Render ─── */
 
   return (
-    <div style={{ minHeight: "100vh", background: colors.bg, color: colors.text, transition: "all 0.3s", display: "flex", flexDirection: "column" }}>
+    <div style={{ height: "100vh", background: colors.bg, color: colors.text, transition: "all 0.3s", display: "flex", flexDirection: "column", overflow: "hidden" }}>
 
       {/* ═══ Header ═══ */}
       {!isZen && (
@@ -1053,7 +1059,7 @@ const App: React.FC = () => {
                 </h2>
               </div>
             )}
-            <div style={{ flex: 1, display: "flex", borderRadius: 8, border: `1px solid ${colors.editorBorder}`, overflow: "hidden", position: "relative" }}>
+            <div style={{ flex: 1, display: "flex", borderRadius: 8, border: `1px solid ${colors.editorBorder}`, overflow: "hidden", position: "relative", minHeight: 0 }}>
               {/* Line numbers */}
               <div className="md-line-numbers" style={{
                 padding: "12px 0", background: colors.codeBg, borderRight: `1px solid ${colors.editorBorder}`,
@@ -1073,7 +1079,7 @@ const App: React.FC = () => {
                 style={{
                   flex: 1, padding: 12, background: colors.editorBg, color: colors.editorText,
                   border: "none", resize: "none", fontFamily: "monospace", fontSize: 13, lineHeight: "1.5",
-                  outline: "none", minHeight: 0,
+                  outline: "none", minHeight: 0, overflowY: "auto",
                 }}
               />
             </div>
