@@ -1,21 +1,65 @@
-# Markdown Editor - V0.1 Alpha
+# Markdown Editor
 
-This repository hosts the source code for a simple and intuitive Markdown editor built using React and TypeScript. The editor allows users to write and preview Markdown content in real-time, making it easier to format text, code snippets, and more. This project is in the V0.1 Alpha stage, which means it is an early version and may still have some bugs and limited features.
+A simple web-based markdown editor that allows users to write and preview markdown content in real-time. It supports common markdown syntax and provides a clean interface for note-taking, documentation, or blogging.
 
 ## Features
-- **Real-Time Preview**: As you type your Markdown text, the rendered HTML output is displayed side-by-side, allowing for instant feedback.
-- **Syntax Highlighting**: Code blocks within the Markdown are highlighted for easier reading and writing.
-- **Simple and Clean UI**: A minimalist user interface that focuses on the writing experience, with responsive design for different screen sizes.
+
+### Markdown Syntax
+- **Headers** (H1–H6), **Bold**, **Italic**, **Strikethrough**
+- **Tables** with styled headers and borders
+- **Task/Checkbox Lists** (`- [x]` / `- [ ]`)
+- **Footnotes** with auto-numbered references
+- **Code Blocks** with syntax highlighting (highlight.js)
+- **Inline Code**, **Blockquotes**, **Horizontal Rules**
+- **Links**, **Images**, **Ordered & Unordered Lists**
+- **Math/LaTeX** rendering with KaTeX (`$inline$` and `$$block$$`)
+- **40+ Emoji** shortcuts (`:smile:`, `:rocket:`, `:fire:`, etc.)
+
+### Editor
+- **Live Split-View Preview** with real-time rendering
+- **Line Numbers** alongside the editor
+- **Syntax Highlighting** for fenced code blocks with language detection
+- **Find & Replace** with regex support and match count
+- **Undo/Redo** toolbar buttons with 50-level history
+- **Auto-Complete Snippets** — type `/table`, `/checklist`, `/code`, `/math`, `/footnote`, `/strike` + Tab
+- **Keyboard Shortcuts** — Ctrl+B (Bold), Ctrl+I (Italic), Ctrl+K (Link), Ctrl+H (Find), Ctrl+S (Save Version), Ctrl+Z / Ctrl+Shift+Z (Undo/Redo)
+- **Drag & Drop Images** directly into the editor (base64 embedded)
+- **Scroll Sync** between editor and preview
+
+### Productivity
+- **localStorage Persistence** — content, documents, and settings survive page refresh
+- **Multiple Documents** with tabs (create, rename, switch, delete)
+- **Auto-Save Versioning** every 30 seconds + manual Ctrl+S
+- **Version History** — browse and restore previous versions
+- **Export to HTML** — downloads a complete standalone HTML file
+- **Print / Export to PDF** — opens a print-friendly view
+- **Copy to Clipboard** with visual feedback
+- **Upload** `.md` and `.txt` files
+- **Shareable Links** — compresses markdown into a URL hash for sharing
+
+### UI/UX
+- **4 Themes** — Light, Dark, Solarized, Dracula (persisted across sessions)
+- **4 View Modes** — Split, Editor-only, Preview-only, Zen (distraction-free)
+- **Adjustable Split Panel** — drag the divider to resize editor vs preview
+- **Table of Contents** — auto-generated from headings
+- **Responsive Design** — mobile tab switching for edit/preview
+- **Print-Friendly Styles** — clean output via CSS `@media print`
+
+### Stats
+- **Word Count**, **Character Count**, **Line Count**
+- **Cursor Position** (line & column)
+- Current theme and view mode displayed in footer
 
 ## Technologies Used
-- **React**: A popular JavaScript library for building user interfaces.
-- **TypeScript**: A statically-typed superset of JavaScript that improves code quality and development experience.
-- **Marked**: A low-level markdown compiler for parsing and converting Markdown to HTML.
+- **React** — UI library
+- **TypeScript** — type-safe JavaScript
+- **Vite** — fast build tool and dev server
+- **highlight.js** — syntax highlighting for code blocks
+- **KaTeX** — math/LaTeX rendering
+- **lz-string** — URL compression for shareable links
+- **lucide-react** — icon library
 
 ## Getting Started
-To run this project locally, follow these steps:
-
-
 
 ### Clone the Repository
 ```bash
@@ -24,22 +68,23 @@ cd Markdown-Editor
 ```
 
 ### Install Dependencies
-``` bash
-  npm install
+```bash
+npm install
 ```
-### Run On Deployment
-``` bash 
+
+### Run Development Server
+```bash
 npm run dev
 ```
 
-### Run Application
-``` bash 
-npm start
+### Build for Production
+```bash
+npm run build
 ```
 
-### Run on production
-``` bash 
-npm build
+### Preview Production Build
+```bash
+npm run preview
 ```
 
 
